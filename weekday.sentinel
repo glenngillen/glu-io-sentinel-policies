@@ -1,6 +1,6 @@
 import "time"
 
-print("the hour is ", time.hour)
-is_weekday = rule { time.day not in ["saturday", "sunday"] }
-is_open_hours = rule { time.hour > 6 and time.hour < 24 }
+print("the hour is ", time.now.hour)
+is_weekday = rule { time.now.weekday_name not in ["Saturday", "Sunday"] }
+is_open_hours = rule { time.now.hour > 6 and time.now.hour < 24 }
 main = rule { is_weekday }
