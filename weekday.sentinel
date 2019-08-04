@@ -1,5 +1,5 @@
 import "time"
 
 is_weekday = rule { time.day not in ["saturday", "sunday"] }
-is_open_hours = rule { time.hour > 6 and time.hour < 17 }
+is_open_hours = rule { time.hour > 6 and time.hour < 21 }
 main = rule { is_open_hours and is_weekday }
