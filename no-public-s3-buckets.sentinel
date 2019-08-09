@@ -1,8 +1,8 @@
 import "tfplan"
 
 main = rule {
+  print(tfplan.resources.aws_s3_bucket)
   all tfplan.resources.aws_s3_bucket as _, buckets {
-    print(buckets)
     all buckets as _, bucket {
       bucket.acl is not "public-read"
     }
