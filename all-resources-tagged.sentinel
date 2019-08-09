@@ -1,6 +1,6 @@
 import "tfplan"
 
-main = rule {
+tags_validated = rule {
   validated = true
   for tfplan.resources as _, resource {
     if validated {
@@ -10,4 +10,8 @@ main = rule {
     }
   }
   validated
+}
+
+main = rule {
+  tags_validated
 }
