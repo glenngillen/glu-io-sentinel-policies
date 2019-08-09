@@ -1,4 +1,5 @@
 import "tfplan"
+import "types"
 
 mandatory_tags = [
   "environment",
@@ -7,6 +8,7 @@ mandatory_tags = [
 
 has_mandatory_tags = func(resource) {
   validated = true
+  print(types.type_of(resource.applied.tags))
   tagged = keys(resource.applied.tags)
   print(tagged)
   return true
