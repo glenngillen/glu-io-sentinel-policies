@@ -8,9 +8,10 @@ mandatory_tags = [
 
 has_mandatory_tags = func(resource) {
   validated = true
-  print(length(resource.applied.tags))
-  tagged = keys(resource.applied.tags)
-  print(tagged)
+  if (length(resource.applied.tags) else -1 >= 0) {
+    tagged = keys(resource.applied.tags)
+    print(tagged)
+  }
   return true
   if resource.applied.tags is not undefined {
     validated = all mandatory_tags as tag {
