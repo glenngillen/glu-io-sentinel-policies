@@ -2,7 +2,7 @@ import "tfplan"
 
 mandatory_tags = [
   "environment",
-  "project"
+  "project",
 ]
 
 has_mandatory_tags = func(resource) {
