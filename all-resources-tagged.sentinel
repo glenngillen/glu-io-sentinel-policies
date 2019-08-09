@@ -1,11 +1,13 @@
 import "tfplan"
 
 main = rule {
-  all tfplan.resources as _, resource {
-    if resource.applied.tags is undefined {
-      true
-    } else {
-      resource.applied.tags contains "environment"
+  validated = true
+  for tfplan.resources as _, resource {
+    if validated {
+      if resource.applied.tags is not undefined {
+        validated = resource.applied.tags contains "environment"
+      }
     }
   }
+  validated
 }
