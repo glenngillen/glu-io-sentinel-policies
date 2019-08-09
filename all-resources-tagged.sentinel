@@ -9,9 +9,11 @@ has_valid_tags = func(resource) {
 }
 
 main = rule {
-  all tfplan.resources as _, resources {
-    all resources as _, resource {
-      has_valid_tags(resource)
+  all tfplan.resources as _, types {
+    all types as _, type {
+      all type as _, resource {
+        has_valid_tags(resource)
+      }
     }
   }
 }
