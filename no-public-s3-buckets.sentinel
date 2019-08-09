@@ -1,6 +1,6 @@
 import "tfplan"
 
+print(tfplan.resources.aws_s3_bucket)
 main = rule {
-  print(tfplan.resources.aws_s3_bucket)
-  true
+  1 > 0
 }
