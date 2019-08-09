@@ -1,9 +1,9 @@
 import "tfplan"
 
 has_valid_tags = func(resource) {
-  validated = true
   print(resource)
   print(resource.applied.tags)
+  validated = true
   if resource.applied.tags is not undefined {
     validated = resource.applied.tags contains "environment"
   }
