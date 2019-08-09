@@ -21,9 +21,9 @@ has_mandatory_tags = func(resource) {
 }
 
 main = rule {
-  all tfplan.resources as _, types {
-    all types as _, type {
-      all type as _, resource {
+  all tfplan.resources as _, resource_types {
+    all resource_types as _, resources {
+      all resources as _, resource {
         has_mandatory_tags(resource)
       }
     }
