@@ -1,17 +1,15 @@
 import "tfplan"
 
-tags_validated = rule {
+has_valid_tags = func(resource) {
   validated = true
-  for tfplan.resources as _, resource {
-    if validated {
-      if resource.applied.tags is not undefined {
-        validated = resource.applied.tags contains "environment"
-      }
-    }
+  if resource.applied.tags is not undefined {
+    validated = resource.applied.tags contains "environment"
   }
-  validated
+  return validated
 }
 
 main = rule {
-  tags_validated
+  all tfplan.resources as _, resource {
+    has_valid_tags(resource)
+  }
 }
