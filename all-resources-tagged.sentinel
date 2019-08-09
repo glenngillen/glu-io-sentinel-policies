@@ -3,6 +3,7 @@ import "tfplan"
 has_valid_tags = func(resource) {
   validated = true
   print(resource)
+  print(resource.applies)
   print(resource.applied.tags)
   return validated
 }
