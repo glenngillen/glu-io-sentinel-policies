@@ -1,0 +1,7 @@
+import "tfplan"
+
+main = rule {
+  all tfplan.resources as _, resource {
+    resource.applied.tags contains "environment"
+  }
+}
